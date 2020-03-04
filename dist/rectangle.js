@@ -1,1 +1,0 @@
-$(function(){var c=$("#width"),l=$("#height"),a=$("#calculate"),u=$("#perimeter"),i=$("#area");function h(a,e){return Math.round(a*Math.pow(10,e))/Math.pow(10,e)}a.click(function(){var a=Number(c.val()),e=Number(l.val()),t=new Rectangle,r=h(t.per(a,e),2),n=h(t.a(a,e),2);u.val(r),i.val(n)})});
