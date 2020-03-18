@@ -62,7 +62,7 @@ module.exports = function (grunt) {
         separator: ';'
       },
       js: {
-        src: ['rectangle.js', 'calc.js'],
+        src: ['rectangle.js', 'util.js'],
         dest: 'dist/bundle.js'
       }
     },
