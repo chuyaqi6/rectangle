@@ -89,5 +89,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lint', ['htmlhint','csslint','eslint']);
   grunt.registerTask('unitTest', ['mocha']);
-  grunt.registerTask('release', ['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('default', ['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
 };
