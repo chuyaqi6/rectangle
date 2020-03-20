@@ -1,4 +1,4 @@
-/* global Rectangle: true */
+/* global Rectangle: true,$forkMeGH,$bszPageFooter:true */
 $(function(){
   //get dom elem
   var $width = $('#width'),
@@ -6,6 +6,8 @@ $(function(){
       $btn = $('#calculate'),
       $per = $('#perimeter'),
       $area = $('#area');
+  $forkMeGH.show('https://github.com/chuyaqi6/rectangle');
+  $bszPageFooter.show('body'); 
   /**
      * decimalSave
      * 保留小数点后n位
