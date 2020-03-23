@@ -44,7 +44,7 @@ module.exports = function (grunt) {
     uglify: {
       release:{
         files: {
-          'dist/bundle.min.js': 'dist/bundle.js'
+          'dist/bundle.min.js': 'dist/bundle.js',
         }
       }
     },
@@ -72,8 +72,9 @@ module.exports = function (grunt) {
         src: './index.html',
         dest: './dist/index.html'
       }
-    } 
+    }
   });
+    
 
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-htmlhint');
@@ -89,5 +90,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lint', ['htmlhint','csslint','eslint']);
   grunt.registerTask('unitTest', ['mocha']);
-  grunt.registerTask('release', ['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('release',['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
 };
