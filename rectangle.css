@@ -22,3 +22,9 @@ span {
   width:70px;
   margin-left:66px;
 }
+#width-validate,
+#height-validate {
+  color: red;
+  font-size: 0.8em;
+  margin-left: 63px;
+}

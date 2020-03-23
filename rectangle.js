@@ -1,37 +1,48 @@
-/* global Rectangle: true,$forkMeGH,$bszPageFooter:true */
+/* global Rectangle: true,$forkMeGH,$bszPageFooter:true,validate:true */
 $(function(){
   //get dom elem
   var $width = $('#width'),
       $height = $('#height'),
       $btn = $('#calculate'),
       $per = $('#perimeter'),
-      $area = $('#area');
+      $area = $('#area'),
+      $widthValidate = $('#width-validate'),
+      $heightValidate = $('#height-validate'),
+      isPassValidate = false;
   $forkMeGH.show('https://github.com/chuyaqi6/rectangle');
   $bszPageFooter.show('body'); 
-  /**
-     * decimalSave
-     * 保留小数点后n位
-     * @param x 做近似处理的值
-     * @param n 小数点后第n位
-     * @returns 近似处理后的值
-     */
-  function decimalSave(num,n){
-    return Math.round(num * Math.pow(10,n)) / Math.pow(10,n);
-  }
+  $width.focusout(function() {
+    var result = validate($width.val());
+    isPassValidate = result.isOK;
+    if(!result.isOK) {
+      $widthValidate.html('宽度' + result.reason);
+      $width.select();
+    } else {
+      $widthValidate.html('');
+    }
+  });
+  $height.focusout(function() {
+    var result = validate($height.val());
+    isPassValidate = result.isOK;
+    if(!result.isOK) {
+      $heightValidate.html('高度' + result.reason);
+      $height.select();
+    } else {
+      $heightValidate.html('');
+    }
+  });
   /*calc button click event*/
   $btn.click(function (){
+    if(!isPassValidate) return;
     //get value
-    var w = Number($width.val()),
-        h = Number($height.val());
+    var w = $width.val(),
+        h = $height.val();
 
     //calculate
-    var rect = new Rectangle();
+    var r = new Rectangle(w, h);
 
-    //decimalSave
-    var p = decimalSave(rect.per(w,h),2);
-    var a = decimalSave(rect.a(w,h),2);
     //output
-    $per.val(p);
-    $area.val(a);
+    $per.val(r.permiter());
+    $area.val(r.area());
   }); 
 });
