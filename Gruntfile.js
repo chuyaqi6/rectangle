@@ -49,20 +49,20 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: 'index.html',
+      html: './index.html',
       options: {
         dest: 'dist'
       }
     },
     usemin: {
-      html: ['dist/index.html']
+      html: 'dist/index.html'
     },
     concat: {
       options: {
         separator: ';'
       },
       js: {
-        src: ['rectangle.js', 'calc.js'],
+        src: ['rectangle.js', 'util.js'],
         dest: 'dist/bundle.js'
       }
     },
