@@ -49,13 +49,13 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: './index.html',
+      html: 'index.html',
       options: {
         dest: 'dist'
       }
-    },
+    }, 
     usemin: {
-      html: 'dist/index.html'
+      html: ['dist/index.html'],
     },
     concat: {
       options: {
@@ -72,7 +72,7 @@ module.exports = function (grunt) {
         src: './index.html',
         dest: './dist/index.html'
       }
-    }
+    }, 
   });
 
   grunt.loadNpmTasks('grunt-contrib-csslint');
