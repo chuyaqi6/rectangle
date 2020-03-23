@@ -42,7 +42,7 @@ $(function(){
     var r = new Rectangle(w, h);
 
     //output
-    $per.val(r.permiter());
+    $per.val(r.perimeter());
     $area.val(r.area());
   }); 
 });
