@@ -1,4 +1,4 @@
-/* global module*/
+/* global module: true */
 module.exports = function (grunt) {
   grunt.initConfig({
     eslint: {
@@ -11,21 +11,21 @@ module.exports = function (grunt) {
       options: {
         csslintrc: '.csslintrc'
       },
-      src: ['*.css']
+      src: '*.css'
     },
     htmlhint: {
       options: {
         htmlhintrc: '.htmlhintrc'
       },
-      src: ['*.html']
+      src: '*.html'
     },
     mocha: {
       test: {
-        src: ['test/index.html'],               
+        src: ['test/index.html'],
       },
       options: {
         run: true,
-        reporter: 'Dot'
+        reporter: 'Spec'
       }
     },
     htmlmin: {
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
         separator: ';'
       },
       js: {
-        src: ['rectangle.js', 'util.js'],
+        src: ['rectangle.js', 'calc.js'],
         dest: 'dist/bundle.js'
       }
     },
@@ -74,7 +74,6 @@ module.exports = function (grunt) {
       }
     }
   });
-    
 
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-htmlhint');
@@ -86,9 +85,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-contrib-clean');  
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('lint', ['htmlhint','csslint','eslint']);
+  grunt.registerTask('lint', ['htmlhint', 'csslint', 'eslint']);
   grunt.registerTask('unitTest', ['mocha']);
-  grunt.registerTask('release',['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('release', ['copy', 'useminPrepare', 'concat', 'uglify', 'usemin', 'cssmin', 'htmlmin', 'clean']);
 };
